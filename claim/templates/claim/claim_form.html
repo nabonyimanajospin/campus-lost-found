@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Claim</title>
+</head>
+<body>
+    <h2>Add Claim</h2>
+    <a href="/claims/">Back to Claims</a>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Claim</button>
+    </form>
+</body>
+</html>

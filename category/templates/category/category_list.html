@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+</head>
+<body>
+    <h2>Categories</h2>
+    <a href="/">Back Home</a>
+    <br>
+    <a href="/categories/add/">Add Category</a>
+    <ul>
+        {% for category in categories %}
+            <li>{{ category.name }}</li>
+        {% empty %}
+            <li>No categories yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

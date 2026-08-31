@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Category</title>
+</head>
+<body>
+    <h2>Add Category</h2>
+    <a href="/categories/">Back to Categories</a>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Category Name:</label>
+        <input type="text" name="name" id="name">
+        <button type="submit">Save Category</button>
+    </form>
+</body>
+</html>

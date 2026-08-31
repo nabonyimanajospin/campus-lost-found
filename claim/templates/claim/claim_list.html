@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claims</title>
+</head>
+<body>
+    <h2>Claims</h2>
+    <a href="/">Back Home</a>
+    <br>
+    <a href="/claims/add/">Add Claim</a>
+    <ul>
+        {% for claim in claims %}
+            <li>{{ claim.item.title }} - {{ claim.status }}</li>
+        {% empty %}
+            <li>No claims yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
