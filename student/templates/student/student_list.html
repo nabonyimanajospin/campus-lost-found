@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students</title>
+</head>
+<body>
+    <h2>Students</h2>
+    <a href="/">Back Home</a>
+    <br>
+    <a href="/students/add/">Add Student</a>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.first_name }} {{ student.last_name }}</li>
+        {% empty %}
+            <li>No students yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

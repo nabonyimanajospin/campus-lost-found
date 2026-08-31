@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items</title>
+</head>
+<body>
+    <h2>Items</h2>
+    <a href="/">Back Home</a>
+    <br>
+    <a href="/items/add/">Add Item</a>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.title }} - {{ item.status }}</li>
+        {% empty %}
+            <li>No items yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
