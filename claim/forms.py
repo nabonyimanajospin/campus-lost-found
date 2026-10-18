@@ -5,4 +5,5 @@ from .models import Claim
 class ClaimForm(forms.ModelForm):
     class Meta:
         model = Claim
-        fields = ['item', 'claimant', 'message', 'status']
+        # Status is not editable here: it only changes through claim.services.
+        fields = ['item', 'claimant', 'message']
