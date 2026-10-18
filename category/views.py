@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from .forms import CategoryForm
 from .models import Category
 
 
@@ -9,8 +11,10 @@ def category_list(request):
 
 def category_create(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        if name:
-            Category.objects.create(name=name)
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('category_list')
-    return render(request, 'category/category_form.html')
+    else:
+        form = CategoryForm()
+    return render(request, 'category/category_form.html', {'form': form})
