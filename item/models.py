@@ -1,8 +1,23 @@
+import uuid
+from pathlib import Path
+
 from django.db import models
 from django.utils import timezone
 
 from category.models import Category
 from student.models import Student
+
+
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def item_image_path(instance, filename):
+    # Random name: no user-controlled filenames on disk and no guessable URLs.
+    # Only known image extensions survive, so an upload can never be served as HTML/JS.
+    ext = Path(filename).suffix.lower()
+    if ext not in IMAGE_EXTENSIONS:
+        ext = ".jpg"
+    return f"items/{uuid.uuid4().hex}{ext}"
 
 
 class Item(models.Model):
@@ -22,6 +37,7 @@ class Item(models.Model):
         blank=True,
         related_name="items",
     )
+    image = models.ImageField(upload_to=item_image_path, null=True, blank=True)
     created_by = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="items")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
