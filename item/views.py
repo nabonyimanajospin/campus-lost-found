@@ -11,7 +11,7 @@ def item_list(request):
 
 def item_create(request):
     if request.method == 'POST':
-        form = ItemForm(request.POST)
+        form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('item_list')

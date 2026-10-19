@@ -5,7 +5,7 @@ from .models import Item
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['title', 'description', 'location', 'category', 'status', 'created_by']
+        fields = ['title', 'description', 'location', 'category', 'image', 'status', 'created_by']
 
     def clean_status(self):
         status = self.cleaned_data['status']
