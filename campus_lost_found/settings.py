@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'item',
     'claim',
     'category',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,11 @@ STATIC_URL = 'static/'
 
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# User uploads (item photos)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+IMAGE_MAX_UPLOAD_BYTES = int(os.environ.get('DJANGO_IMAGE_MAX_MB', 5)) * 1024 * 1024
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
